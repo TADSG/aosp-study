@@ -54,6 +54,12 @@ $ repo sync
 
 這樣就會把整份AOSP程式碼給下載下來。一般來說如果網路狀況良好，大概花四五個小時就會下載完了。如果下載過程失敗，可以直接再打一次`$ repo sync`，一直失敗就只好請你打到成功為止嘍囧>
 
+由於下載source code真的很久，如果放整晚又怕電腦休眠的話可以用[`caffeinate`](/appendix/cli-tools/caffeinate.md)指令避免電腦休眠
+
+```shell
+$ caffeinate repo sync
+```
+
 下載完成後你就有AOSP的整份原始碼了，接著就可以開始研究嘍！不過在那之前我們還是先來將這份AOSP原始碼給編譯起來吧！請見下一章！
 
 [下一章：編繹AOSP原始碼](#build.md)

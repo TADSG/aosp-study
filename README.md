@@ -8,6 +8,9 @@
 2. [下載AOSP程式碼](/ch2_download)
 3. [編繹AOSP原始碼](/ch3_build)
 
+* [附錄：終端機工具及指令](/appendix/cli-tools)
+ 
+
 ## Contributors(協作者們)
 
 * [Charlie Tsai](https://github.com/chatea) - cha122977@gmail.com

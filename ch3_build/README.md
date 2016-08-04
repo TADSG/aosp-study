@@ -2,6 +2,14 @@
 
 [上一章：下載AOSP程式碼](#download.md)
 
+<TODO build aosp>
+
+同樣的，如果要放整晚的話，請加上[`caffeinate`](/appendix/cli-tools/caffeinate.md)指令
+
+```shell
+$ caffeinate make -j8 | tee build.log
+```
+
 ## TroubleShoot
 ### fingerprint
 
