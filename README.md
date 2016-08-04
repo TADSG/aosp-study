@@ -4,9 +4,9 @@
 
 ## 目錄
 
-1. [環境設定](#setup.md)
-2. [下載AOSP程式碼](#download.md)
-3. [編繹AOSP原始碼](#build.md)
+1. [環境設定](/ch1_setup)
+2. [下載AOSP程式碼](/ch2_download)
+3. [編繹AOSP原始碼](/ch3_build)
 
 ## Contributors(協作者們)
 
