@@ -1,6 +1,6 @@
 # aosp-study
 
-本教材為Android讀書會中，由大家自發性發起學習AOSP的教材。
+本項目為[Android讀書會](https://www.facebook.com/groups/523386591081376/)中，由大家自發性發起學習AOSP的教材。
 
 AOSP為**Android Open Source Project**的縮寫，白話來說就是Android的原始碼。這份教材會以探討AOSP的設計架構為主軸。
 
@@ -9,6 +9,7 @@ AOSP為**Android Open Source Project**的縮寫，白話來說就是Android的�
 ***目前已經有人願意編寫Linux(Ubuntu)的教材了，還請耐心等待。或者可以直接參考[AOSP官方網站](https://source.android.com/index.html)***
 
 ## TODO
+
 以下這些章節待完成，如果各位願意一起共筆的話不妨寫上吧！別忘了在Contributors上加上你的大名和聯絡方式喔！
 
 * 確認SD卡的路徑設定沒問題
@@ -34,6 +35,6 @@ AOSP為**Android Open Source Project**的縮寫，白話來說就是Android的�
 
 [![Created Commons License](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-sa/3.0/)
 <br>
-本教材採用[CC-BY-SA授權](http://creativecommons.org/licenses/by-sa/3.0/).
+本項目採用[CC-BY-SA授權](http://creativecommons.org/licenses/by-sa/3.0/).
 <br>
 This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
