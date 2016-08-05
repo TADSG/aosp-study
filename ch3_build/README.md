@@ -134,6 +134,16 @@ $ make -j8 | tee build.log
 $ caffeinate make -j8 | tee build.log
 ```
 
+### Clean Build
+
+在某些情況下你可能會需要Clean Build(我希望各位不會有這個需要)，如果有這個需要請在設定好的開發環境上輸入以下指令：
+
+```shell
+$ make clobber
+```
+
+這個指令會將之前編譯過的東西都清掉，清完後再重新做`$ make -j8`即可
+
 ## 啟動emulator
 
 只要在設定好環境變數的shell輸入
