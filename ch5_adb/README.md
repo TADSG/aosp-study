@@ -12,9 +12,9 @@
 
 ## adb sync 初體驗
 
-首先我們先來修改`Activity`當成實驗。
+首先我們先來修改`ViewRootImpl.java`當成實驗。`ViewRootImpl.java`是Android framework中畫面的處理者，所以不管你打開哪個App都會用到它。它和一般的View不太一樣是用Composition pattern的方式和View產生關連，然後再和WindowManager互動。這邊就只要先知道這些就可以了
 
-請先將**設定好環境的終端機**移動到`$TOP/framework/base/core/`資料夾，再打開`android/view/ViewRootImpl.java`
+請先將**設定好環境的終端機**移動到`$TOP/framework/base/core/`資料夾，再打開`android/view/ViewRootImpl.java`
 
 ```shell
 $ cd framework/base/core
