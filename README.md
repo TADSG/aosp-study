@@ -18,12 +18,29 @@ AOSP為**Android Open Source Project**的縮寫，白話來說就是Android的�
 
 ## 目錄
 
+### 基本設定篇
+
 1. [環境設定](/ch1_setup)
 2. [下載AOSP程式碼](/ch2_download)
 3. [編繹AOSP原始碼](/ch3_build)
 4. [燒入客製的AOSP image](/ch4_flash)
 5. [使用adb工具開發AOSP](/ch5_adb)
 6. [AOSP架構總覽](/ch6_aosp_overview)
+7. [設定Android Studio](/ch7_android_studio_setup)
+
+### Android核心知識篇 (TODO)
+
+暫定主題，順序未定
+
+* Android與Linux kernel的關係
+* HAL
+* Android的核心library (sp,wp,RefBase)
+* Android執行的第一個程式：init與init.rc
+* Android的IPC框架：servicemanager與binder driver
+* Android開機流程
+* Zygote
+* framework IPC: IBinder
+* System Server
 
 * [附錄：終端機工具及指令](/appendix/cli-tools)
 
