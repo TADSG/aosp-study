@@ -1,6 +1,12 @@
 # aosp-study
+
 本教材為Android讀書會中，由大家自發性發起學習AOSP的教材。
+
+AOSP為**Android Open Source Project**的縮寫，白話來說就是Android的原始碼。這份教材會以探討AOSP的設計架構為主軸。
+
 由於大部份人都是使用Mac開發，因此本教材基於MacOS編寫。如果您用的是Windows或Ubuntu則建議參考其它教材。
+
+***目前已經有人願意編寫Linux(Ubuntu)的教材了，還請耐心等待。或者可以直接參考[AOSP官方網站](https://source.android.com/index.html)***
 
 ## TODO
 以下這些章節待完成，如果各位願意一起共筆的話不妨寫上吧！別忘了在Contributors上加上你的大名和聯絡方式喔！

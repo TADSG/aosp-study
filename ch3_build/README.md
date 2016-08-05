@@ -1,17 +1,17 @@
-# Build
+# 編譯AOSP
 
 [上一章：下載AOSP程式碼](/ch2_download)
 
-這章節將正式編譯AOSP原始碼並打開模擬器。
+這章節將正式編譯AOSP原始碼，並以你編好的AOSP image打開模擬器。
 
 ## 設定環境變數
 
-由於我們的環境是Mac，所以環境變數的設定要改其中兩個路徑：
+如果你的環境是Mac，環境變數的設定中要額外設定兩個路徑：
 
 1. `$ANDROID_JAVA_HOME` 要正確選到Java8的版本
 2. 要選我們用homebrew自己安裝的`curl`，而不要用預設的`curl`
 
-再加上原本就需要的`source build/envsetup.sh`也要做。這一個動作會將AOSP預設所有環境變數設好。總體來說我們要做的就是：
+再加上原本編譯AOSP就需要的`source build/envsetup.sh`也要做。這一個動作會將AOSP預設所有環境變數設好。總體來說我們要做的就是：
 
 ```shell
 $ export ANDROID_JAVA_HOME=$(/usr/libexec/java_home -v1.8)
@@ -19,9 +19,17 @@ $ source build/envsetup.sh
 $ export PATH=$(brew --prefix curl)/bin:$PATH # Use newer curl
 ```
 
+如果你是Linux(Ubuntu)的使用者，只要做
+
+```shell
+$ source build/envsetup.sh
+```
+
+就可以了。
+
 這樣就算完成環境變數的設定了。請注意這個設定會在你關掉終端機頁面後消失，如果開了新的終端機頁面就要重新設定。
 
-***完成環境變數設定後，`$TOP`會被設定成AOSP原始碼的根目錄，以下如果提到`$TOP`這個位置，則皆指AOSP原始碼根目錄。(以目前為止的範例來說，會是在`/Volumes/android/aosp`)***
+***完成環境變數設定後，`$TOP`會被設定成AOSP原始碼的根目錄。你可以用如`cd $TOP`的指令直接移動到AOSP原始碼根目錄。以下如果提到`$TOP`這個位置，則皆指AOSP原始碼根目錄。以目前為止的範例來說，Mac上分割磁區者會是在`/Volumes/android/aosp`，用外接SD記憶卡的則是在`[SD卡根目錄]/aosp/`***
 
 ## 選擇要build的img類型
 
@@ -65,26 +73,27 @@ Lunch menu... pick a combo:
 Which would you like? [aosp_arm-eng] 
 ```
 
-這邊我推薦使用`aosp_x86_64-eng`，這個選項，`mini_emulator_x86_64-userdebug`編譯出來的結果約需要30G。
+這邊我推薦使用`aosp_x86_64-eng`，這個選項，`aosp_x86_64-eng`編譯出來的結果約需要額外30G的容量。
 
 ----
 
 照理說用`mini_emulator_x86_64-userdebug`也是可行的，但這個mini其實也是需要約30G，沒省到哪…
-另外eng會比userdebug有更多的debug工具(下面會提到)。
+另外eng會比userdebug有更多的debug工具。
 而且不知道為什麼，筆者用`mini_emulator_x86_64-userdebug`的emulator沒辦法使用`adb`連線！目前看來是個AOSP bug，但這會導致之後我們非常難以開發AOSP，所以這邊**強烈推薦用`aosp_x86_64-eng`**。
 
 ----
 
-如果是用Mac系統的話，無論如何都建議使用x86_64類型的選項，因為x86_64有支援HAXM，可以讓你的模擬器跑的很快。不過如果是用Linux系統就沒辦法了，因為HAXM並不支援Linux，這時就看喜好了。通常在Linux開發的人會採用arm_64，因為主流手機大部份都是arm_64。不過我們並沒有要做硬體相關的修改而是只打算研究AOSP framework，所以在Mac上開發選能用HAXM加速的選項。
+如果是用Mac系統的話，請無論如何都使用x86_64類型的選項，因為x86_64有支援HAXM，可以讓你的模擬器跑的很快。不過如果是用Linux系統就沒辦法了，因為HAXM並不支援Linux，這時就看喜好了。通常在Linux開發的人會採用arm_64，因為主流手機大部份都是arm_64。不過我們並沒有要做硬體相關的修改而是只打算研究AOSP framework，所以在Mac上開發選能用HAXM加速的選項。
 
+用實機(Nexus系列)開發的人，請用你的裝置專用的選項。
 
 ### 三種build type的差別
 
 |Build Type| 說明
 |----------|:---
 | user     |正式的產品會用這個Build Type，也因為是正式產品要用的所以權限上有限制(不能root之類的)
-| userdebug|同user，但將權限全開。最推薦的Build Type
-| eng      |開發用的Build Type，有追加許多不存在於userdebug版本中的除錯工具。
+| userdebug|同user，但將權限全開。做產品時推薦的Build Type
+| eng      |開發用的Build Type，有追加許多不存在於userdebug版本中的除錯工具。我們主要是要研究所以就用這個
 
 顯然的，因為我們是要開發/研究AOSP，所以就選userdebug或eng嘍。
 
@@ -94,7 +103,7 @@ Which would you like? [aosp_arm-eng]
 
 作者在2016/8/5時進行編譯有碰到一些問題，所以這邊先把這個問題處理掉。在底下的TroubleShooting也可以找到一樣的問題。
 
-* 修改`AOSP_TOP/build/tools/post_process_props.py`這個檔案，找到`PROP_VALUE_MAX = 91`並把它改成`128`，如下：
+* 修改`$TOP/build/tools/post_process_props.py`這個檔案，找到`PROP_VALUE_MAX = 91`並把它改成`128`，如下：
 
 ```python
 PROP_NAME_MAX = 31
@@ -102,7 +111,7 @@ PROP_NAME_MAX = 31
 PROP_VALUE_MAX = 128
 ```
 
-* 修改`AOSP_TOP/bionic/libc/include/sys/system_properties.h`這個檔案，找到`#define PROP_VALUE_MAX 92`並把它改成`128`，如下：
+* 修改`$TOP/bionic/libc/include/sys/system_properties.h`這個檔案，找到`#define PROP_VALUE_MAX 92`並把它改成`128`，如下：
 
 ```c
 #define PROP_NAME_MAX   32
@@ -110,17 +119,17 @@ PROP_VALUE_MAX = 128
 #define PROP_VALUE_MAX  128
 ```
 
-完成！
+到此為止你應該就能順利編譯AOSP了！
 
 ## 編譯AOSP原始碼
 
-在完成上述步驟後的shell內輸入
+在俱備環境設定的終端機內輸入
 
 ```shell
 $ make -j8
 ```
 
-就會開始編AOSP了。大概2至3個小時會完成。當中的`-j8`表示最高可以同時開8個平行的Thread來做編譯的動作，建議這邊輸入和你的CPU核心數一樣的數字。
+就會開始編AOSP了。大概4至5個小時會完成。當中的`-j8`表示最高可以同時開8個平行的Thread/Process來做編譯的動作，建議這邊輸入和你的CPU核心數一樣的數字。
 
 如果怕編譯過程出錯而想將Log給記錄下來的話，可以用[`tee`](/appendix/cli-tools/tee.md)工具記錄：
 
@@ -136,7 +145,7 @@ $ caffeinate make -j8 | tee build.log
 
 ### Clean Build
 
-在某些情況下你可能會需要Clean Build(我希望各位不會有這個需要)，如果有這個需要請在設定好的開發環境上輸入以下指令：
+在某些情況下你可能會需要Clean Build（我由衷的希望各位不會有這個需要！），如果有這個需要請在設定好的開發環境上輸入以下指令：
 
 ```shell
 $ make clobber
@@ -146,7 +155,7 @@ $ make clobber
 
 ## 啟動emulator
 
-只要在設定好環境變數的shell輸入
+編譯完成後會開到像是"Build Succeed"的字樣，這時後只要再輸入
 
 ```shell
 $ emulator

@@ -14,22 +14,21 @@
 
 ### <a name="disk_option1"> 選項1 - 分割AOSP磁區 </a>
 
-由於Mac上的File System(檔案系統)不分大小寫，所以我們要先切一塊磁區出來，並 使用分大小寫的File System
+AOSP的檔案和編譯環境是有區分大小寫的(比如說，同檔名但大小寫不同會被視為不同的檔案)。而Mac上預設的檔案系統(File System)是不分大小寫的，所以我們要先切一塊磁區出來，並使用分大小寫的檔案系統。
 
 ```shell
-$ hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 150g ~/android.dmg
+$ hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 100g ~/android.dmg
 ```
 
-官方文件是建議切40G出來，但最新(AOSP上的master branch)光下載source code就38G了……這邊建議是直接切150G(不夠也不用擔心，這個之後還能調大)
+官方文件是建議切40G出來，但最新(AOSP上的master branch)光下載source code就38G了……這邊建議是直接切個100G出來。不夠也不用擔心，這個之後還能調大。
 
-接著會在你的家目錄(`$ ~/`)下找到剛建立出來的磁區`android.img`(也有可能被叫做`android.img.sparseimage`)。
-以下為了方便，我們統一把他命名成`android.img.sparseimage`
+接著會在你的家目錄(`$ ~/`)下找到剛建立出來的磁區`android.img`。它也有可能被叫做`android.img.sparseimage`，以下為了方便，我們統一把他命名成`android.img.sparseimage`
 
 ```shell
 $ mv ~/android.img ~/android.img.sparseimage # 僅在你建出來的磁區叫做android.img.sparseimage時才需做這個步驟
 ```
 
-如果之後需要修改這個磁區的大小，可以使用以下指令：
+如果之後需要修改這個磁區的大小(通常是要改大)，可以使用以下指令：
 
 ```shell
 $ hdiutil resize -size <new-size-you-want>g ~/android.dmg.sparseimage
@@ -80,40 +79,35 @@ function umountAndroid() { hdiutil detach /Volumes/android; }
 
 ![格式化SD卡](sdcard_format.png)
 
-```shell
-$ hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 150g ~/android.dmg
-```
-
 ## 安裝需要的library和套件
 
 請參考[官網](https://source.android.com/source/requirements.html)，一般來說Android app開發者該裝的都裝過了。
 
-雖然官網上有一段是用MacPort，但我本身覺得homebrew比較好而不喜歡MacPort，所以我是安裝[homebrew](http://brew.sh/)
+雖然官網上的教學用的是MacPort，但我本身覺得homebrew比較好用而不喜歡MacPort，所以我是安裝[homebrew](http://brew.sh/)
 
 ```shell
-$ brew install gnupg # 安裝 guupg
+$ brew install gnupg # 安裝 gnupg
 ```
 
-Mac上應該已經內建`git`1.7+(可用`git --version`查)及`python` 2.7.+(可用`python --version`查，注意如果是3.x以上是不行的，非2.7不可)
+Mac上應該已經內建`git`1.7+(可用`git --version`查尋)及`python` 2.7.+(可用`python --version`查)。注意python3.x以上是不行的，非2.7不可。主要是因為python3不相容python2.x，而在早期AOSP開發過程中，有很多的檔案和工具是用python2.7寫的，官方也沒有把這些檔案轉成python3的版本。通常來說電腦內輸入`python`會用2.x，而輸入`python3`會用3.x)
 
 以下是官網沒提到，但實際上你需要安裝的libraries
 
 ```shell
 $ brew install cmake # 取代gnu-make
-$ brew install ninja # ninja-build，Android 7.0開始使用的新build code機制(用來取代GNU make)
-$ brew install xz  # ninja-build過程會用到
+$ brew install ninja # ninja-build，Android 6.0後期開始採用的新build code機制，用來取代GNU make
+$ brew install xz  # ninja-build的過程會用到
 ```
 
-`curl`也必需安裝，但這邊有個特殊情況。Mac內建就有一個curl，但用內建的會有問題，所以我們還是必需裝一份。而這邊不能直接用`brew install curl`裝，因為AOSP需要的`curl`必需是用`openssl`來編譯，但預設`brw install curl`並不是用`openssl`這個library來編，所以這邊在安裝時要用：
+`curl`也必需安裝，但這邊有個特殊情況。Mac內建就有一個curl，但用內建的在編譯過程會有問題，所以我們還是必需自己裝一份。而這邊不能直接用`brew install curl`裝，因為AOSP需要的`curl`必需是用`openssl`來編譯，但預設`brw install curl`並不是用`openssl`這個library來編，所以這邊在安裝時要用：
 
 ```
-$ brew install curl --with-openssl # 先裝起來，下一章再處理選用自己裝的curl這件事。
+$ brew install curl --with-openssl # 先裝起來，下一章會再處理選用自己裝的curl這件事。
 ```
 
 ## 調高FD上限
 
-MacOS預設上有限制最大FD開啟數量，而這個數量不夠我們Build AOSP
-因此必需調高它。
+MacOS預設上有限制最大FD開啟數量(簡單來說，Mac有限制同時間開啟的檔案數量)，而這個數量不夠我們編譯AOSP。因此我們必需調高它。
 
 在`~/.bash_profile`內加入以下程式碼
 
@@ -122,11 +116,16 @@ MacOS預設上有限制最大FD開啟數量，而這個數量不夠我們Build A
 ulimit -S -n 1024
 ```
 
+完成這步後請記得重新打開你的終端機，這樣改動才會生效。
+
 <TODO 優化Build系統(原理是做cache，但因為mac容量有限所以我覺得別設比較好……)>
 
-至此，基本環境設定就算完成了！
+## 完成！
+
+至此，基本環境設定就算完成了！接下來就是下載AOSP原始碼嘍！
 
 [下一章：下載AOSP程式碼](/ch2_download)
 
 ## Reference
+
 * [AOSP官方設定(英)](https://source.android.com/source/initializing.html)
