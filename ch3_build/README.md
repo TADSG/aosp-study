@@ -170,10 +170,46 @@ $ emulator
 export ANDROID_JAVA_HOME=$(/usr/libexec/java_home -v1.8)
 source build/envsetup.sh
 export PATH=$(brew --prefix curl)/bin:$PATH # Use curl of homebrew
-lunch 6 # build aosp_x86_64-eng
+lunch 7 # build aosp_x86_64-eng
 ```
 
-(注意如果你不是選`aosp_x86_64-eng`的話，`lunch`後面的數定要改成對應的項目)
+***這裡有個奇怪的AOSP Bug，明明`aosp_x86_64-eng`在`lunch`的選單表裡面編號是6，但實際測試後其實是7才對***，如果你不是很確定到底要用`lunch 6`還是`lunch 7`那可以在執行後看一下出現的訊息是不是和下面所列出來的一樣
+
+```shell
+ /Volumes/android/aosp/ lunch 7
+find: vendor: No such file or directory
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=6.0.1
+TARGET_PRODUCT=aosp_x86_64
+TARGET_BUILD_VARIANT=eng
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=x86_64
+TARGET_ARCH_VARIANT=x86_64
+TARGET_CPU_VARIANT=
+TARGET_2ND_ARCH=x86
+TARGET_2ND_ARCH_VARIANT=x86_64
+TARGET_2ND_CPU_VARIANT=
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=darwin
+HOST_OS_EXTRA=Darwin-15.6.0-x86_64-i386-64bit
+HOST_CROSS_OS=
+HOST_CROSS_ARCH=
+HOST_CROSS_2ND_ARCH=
+HOST_BUILD_TYPE=release
+BUILD_ID=MASTER
+OUT_DIR=out
+AUX_OS_VARIANT_LIST=
+============================================
+ /Volumes/android/aosp/
+```
+
+要注意的是`TARGET_PRODUCT=aosp_x86_64`和`TARGET_ARCH=x86_64`，如果都一樣就沒問題了。
+
+如果你不是選`aosp_x86_64-eng`的話，`lunch`後面的數字請自己改成對應的項目
 
 之後每當我們要設定環境時，只要先切到AOSP原始碼的根目錄，再輸入
 
@@ -182,7 +218,7 @@ source setup
 ```
 
 這樣環境就都設定好了。
-(`source`工具其實就是讀一個檔案然後把檔案的內容當成command執行，所以`source setup`就是把`setup`這個檔案裡面的指令給自動執行一遍)
+(`source`工具其實就是讀一個檔案然後把檔案的內容當成command執行，所以`source setup`就是把`setup`這個檔案裡面的每一行指令給自動依序執行一遍)
 
 ## 完成！
 
