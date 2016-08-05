@@ -1,6 +1,18 @@
 # 環境設定
 
-## 建立AOSP磁區
+歡迎來學習並開發AOSP！本章節將教導大家如何在Mac上設定好你的AOSP開發環境。
+
+
+## 準備好開發AOSP要用的磁區
+
+一個不好的消息是，如果要開發AOSP你最少要準備約100GB的磁碟空間。如果你的Mac是總容量較小的型號，那要準備出這個空間可不容易呀！不過沒關係，這部份你可以準備一張128GB的高速SD卡來代替！(如果你用的是外接硬碟，則設定同SD卡。不過USB的傳輸速度很慢，所以還是建議用SD卡)
+
+以下有兩個準備空間的選項，請依照你的需求選擇其一即可
+
+1. [分割AOSP磁區](#disk_option1)
+2. [使用外接128G(以上)的SD記憶卡](#disk_option2)
+
+### <a name="disk_option1"> 選項1 - 分割AOSP磁區 </a>
 
 由於Mac上的File System(檔案系統)不分大小寫，所以我們要先切一塊磁區出來，並 使用分大小寫的File System
 
@@ -23,7 +35,8 @@ $ mv ~/android.img ~/android.img.sparseimage # 僅在你建出來的磁區叫做
 $ hdiutil resize -size <new-size-you-want>g ~/android.dmg.sparseimage
 ```
 
-## 建立mountAndroid及umountAndroid指令
+#### 建立mountAndroid及umountAndroid指令
+
 由於切出來的這個磁區有點像是在電腦內切出一個USB磁碟，所以這個USB是需要插入(`mount`指令)後才能用的。當然可以插入就可以拔出來(`umount`指令)。而因為這兩個指令其實不是很好背，所以我們來為我們的CLI建立兩個方便插拔Android磁區的指令
 
 打開`~/.bash_profile`，加入以下兩段內容：
@@ -44,9 +57,32 @@ function umountAndroid() { hdiutil detach /Volumes/android; }
 
 完成後，重開你的terminal，便可以使用mountAndroid及umountAndroid了指令了。
 
-`mountAndroid`指令會將android磁區插到`/Volumes/android`的位置。相對的`umountAndroid`就是拔下嘍(其實你也可以打開finder然後用手動退出)。
+`mountAndroid`指令會將android磁區插到`/Volumes/android`的位置。相對的`umountAndroid`就是拔下嘍
 
-<TODO: add manual unplug screen shot>
+當然啦，因為這個磁區就像是插上電腦的一樣，所以你也可以打開finder手動退出它
+
+![手動退出](manual_unplug.png)
+
+### <a name="disk_option1"> 選項2 - [使用外接128G(以上)的SD記憶卡] </a>
+
+由於AOSP所需要的是區分大小寫的磁區，所以我們要將SD記憶卡給格式化成我們需要的格式。
+
+請依下列步驟
+
+1. 插上SD記憶卡
+2. 請確定記憶卡內沒有任何需要的資料，過程中記憶卡的資料將*永久*消失
+3. 打開你電腦中的**`磁碟工具程式`**
+4. 選擇SD記憶卡後，按下**`清除`**標籤
+5. 名稱隨意取一個，但保險起見不要有空格
+6. 格式請選擇**`OS X 擴充格式 (區分大小寫、日誌式)`**
+7. 按下**`清除`**按鈕
+8. 完成！
+
+![格式化SD卡](sdcard_format.png)
+
+```shell
+$ hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 150g ~/android.dmg
+```
 
 ## 安裝需要的library和套件
 

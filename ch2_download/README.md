@@ -18,11 +18,13 @@ $ chmod a+x /usr/local/bin/repo
 
 ## 裝上Android磁區
 
-插上你的Android磁區
+若是使用分割磁區請執行
 
 ```shell
 $ mountAndroid
 ```
+
+使用SD記憶卡則插上便可(已經插好的話略過這步)
 
 ## 建立工作目錄
 
