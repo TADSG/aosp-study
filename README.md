@@ -7,6 +7,7 @@
 1. [環境設定](/ch1_setup)
 2. [下載AOSP程式碼](/ch2_download)
 3. [編繹AOSP原始碼](/ch3_build)
+4. [燒入客製的AOSP image](/ch4_flash)
 
 * [附錄：終端機工具及指令](/appendix/cli-tools)
  

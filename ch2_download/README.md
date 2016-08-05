@@ -1,6 +1,6 @@
 # 下載AOSP程式碼
 
-[上一章：環境設定](#setup.md)
+[上一章：環境設定](/ch1_setup)
 
 由於AOSP太過龐大，不能只用一個`git`專案管理，所以AOSP其實被切成約500個`git`專案。而為了確保這500個專案能協調，Google官方就用python寫了一個工具叫`repo`來協調各個專案。
 <TODO 有更好的說法嗎？>
@@ -62,7 +62,7 @@ $ caffeinate repo sync
 
 下載完成後你就有AOSP的整份原始碼了，接著就可以開始研究嘍！不過在那之前我們還是先來將這份AOSP原始碼給編譯起來吧！請見下一章！
 
-[下一章：編繹AOSP原始碼](#build.md)
+[下一章：編繹AOSP原始碼](/ch3_build)
 
 ## 參考資料
 * [官方文件(英)](https://source.android.com/source/downloading.html)

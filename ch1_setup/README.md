@@ -90,7 +90,7 @@ ulimit -S -n 1024
 
 至此，基本環境設定就算完成了！
 
-[下一章：下載AOSP程式碼](#download.md)
+[下一章：下載AOSP程式碼](/ch2_download)
 
 ## Reference
 * [AOSP官方設定(英)](https://source.android.com/source/initializing.html)
