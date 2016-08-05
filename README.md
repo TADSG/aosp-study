@@ -1,13 +1,13 @@
 # aosp-study
-本教材為Android讀書會中，由大家自發性發請學習AOSP的教材。
+本教材為Android讀書會中，由大家自發性發起學習AOSP的教材。
 由於大部份人都是使用Mac開發，因此本教材基於MacOS編寫。如果您用的是Windows或Ubuntu則建議參考其它教材。
 
 ## TODO
-以下這些章節待完成，如果各位願意一起共筆的話不妨寫上吧！
+以下這些章節待完成，如果各位願意一起共筆的話不妨寫上吧！別忘了在Contributors上加上你的大名和聯絡方式喔！
 
 * 確認SD卡的路徑設定沒問題
 * [CH4: 燒入客製的AOSP image](/ch4_flash)
-
+* [CH6: AOSP架構總覽](/ch6_aosp_overview)
 
 ## 目錄
 
@@ -16,6 +16,7 @@
 3. [編繹AOSP原始碼](/ch3_build)
 4. [燒入客製的AOSP image](/ch4_flash)
 5. [使用adb工具開發AOSP](/ch5_adb)
+6. [AOSP架構總覽](/ch6_aosp_overview)
 
 * [附錄：終端機工具及指令](/appendix/cli-tools)
 
