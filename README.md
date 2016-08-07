@@ -48,6 +48,8 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 
 * [Charlie Tsai](https://github.com/chatea) - cha122977@gmail.com
 * [Cheng-Yi, Yu](https://github.com/erinus) - erinus.startup@gmail.com
+* [chiel99](https://github.com/chiel99)
+* [Lex Chien](https://github.com/LexChien)
 
 ## License (版權聲明)
 
