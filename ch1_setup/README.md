@@ -27,7 +27,7 @@ $ hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 100g ~/a
 接著會在你的家目錄（`$ ~/`）下找到剛建立出來的磁區 `android.img`。它也有可能被叫做 `android.img.sparseimage`，以下為了方便，我們統一把他命名成 `android.img.sparseimage`
 
 ```shell
-$ mv ~/android.img ~/android.img.sparseimage   # 僅在你建出來的磁區叫做 android.img.sparseimage 時才需做這個步驟
+$ mv ~/android.img ~/android.img.sparseimage   # 僅在你建出來的磁區叫做 android.img 時才需做這個步驟
 ```
 
 如果之後需要修改這個磁區的大小（通常是要改大），可以使用以下指令：
