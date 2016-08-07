@@ -46,7 +46,7 @@ $ hdiutil resize -size <new-size-you-want>g ~/android.dmg.sparseimage
 
 ```shell
 # mount the android file image
-function mountAndroid { hdiutil attach ~/android.dmg -mountpoint /Volumes/android; }
+function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
 ```
 
 * 指令 2: umountAndroid
