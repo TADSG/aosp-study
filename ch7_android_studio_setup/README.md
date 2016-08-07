@@ -48,7 +48,7 @@ Traversed tree: 204171ms
 
 ## 用Android Studio開啟AOSP專案
 
-打開你的Android Studio，選`open project`，然後打開剛剛產生出來的`android.iml`檔案
+打開你的Android Studio，選`open project`，然後打開剛剛產生出來的`android.ipr`檔案
 
 ![用Android Studio開啟AOSP](as_open_aosp.png)
 
