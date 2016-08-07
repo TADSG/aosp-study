@@ -12,8 +12,6 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 
 以下這些章節待完成，如果各位願意一起共筆的話不妨寫上吧！別忘了在 Contributors 上加上你的大名和聯絡方式喔！
 
-* 確認 SD 卡的路徑設定沒問題
-* [CH4: 燒入客製的 AOSP Image](/ch4_flash)
 * [CH6: AOSP 架構總覽](/ch6_aosp_overview)
 
 ## 目錄
@@ -23,7 +21,7 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 1. [環境設定](/ch1_setup)
 2. [下載 AOSP 程式碼](/ch2_download)
 3. [編繹 AOSP 原始碼](/ch3_build)
-4. [燒入客製的 AOSP Image](/ch4_flash)
+4. [燒錄客製的 AOSP Image](/ch4_flash)
 5. [使用 adb 工具開發 AOSP](/ch5_adb)
 6. [AOSP 架構總覽](/ch6_aosp_overview)
 7. [設定 Android Studio](/ch7_android_studio_setup)
