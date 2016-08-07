@@ -131,7 +131,7 @@ $ ulimit -S -n 1024
 # <a name="ubuntu1404">Ubuntu 14.04 LTS</a>
 ## 安裝需要的 Libraries 和 Packages
 
-請參考[官網](https://source.android.com/source/requirements.html)，一般來說 Android App 開發者該裝的都裝過了。
+參考來源：[官網](https://source.android.com/source/requirements.html)。
 
 ```shell
 $ sudo apt-get update
@@ -141,7 +141,7 @@ $ sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl 
 啟用 ccache 機制
 
 ```shell
-$ vi .bashrc
+$ vi ~/.bashrc
 # 加入以下內容
 export USE_CCACHE=1
 ```
