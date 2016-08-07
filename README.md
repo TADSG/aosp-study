@@ -47,6 +47,7 @@ AOSP為**Android Open Source Project**的縮寫，白話來說就是Android的�
 ## Contributors(協作者們)
 
 * [Charlie Tsai](https://github.com/chatea) - cha122977@gmail.com
+* [erinus](https://github.com/erinus)
 
 ## License(版權聲明)
 
