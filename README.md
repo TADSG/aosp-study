@@ -48,6 +48,7 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 * [Cheng-Yi, Yu](https://github.com/erinus) - erinus.startup@gmail.com
 * [Richard Chang](https://github.com/chiel99)
 * [Lex Chien](https://github.com/LexChien)
+* [weihung](https://github.com/weihung)
 
 ## License (版權聲明)
 
