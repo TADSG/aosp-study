@@ -1,4 +1,4 @@
-# 下載AOSP程式碼
+# 下載 AOSP 程式碼
 
 [上一章：環境設定](/ch1_setup)
 
@@ -27,7 +27,7 @@ $ chmod a+x /usr/local/bin/repo
 $ mountAndroid
 ```
 
-使用 SD 記憶卡則插上便可（已經插好的話略過這步）
+使用 SD 記憶卡則掛載便可（已經掛載的話略過這步）
 
 ## 建立工作目錄
 
@@ -88,7 +88,7 @@ $ chmod a+x ~/aosp/bin/repo
 ## 更新 bash 啟動設定
 
 ```shell
-$ vi .bashrc
+$ vi ~/.bashrc
 # 加入以下內容
 export PATH=~/aosp/bin:$PATH
 ```
