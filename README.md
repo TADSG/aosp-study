@@ -8,6 +8,11 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 
 ***或可直接參考[AOSP官方網站](https://source.android.com/index.html)***
 
+## 實驗環境
+
+我們提供已經成功建置供 Google Nexus 5 手機開發虛擬機映像檔（VMware Workstation Pro 12.1.1 + Ubuntu 14.04.4 LTS + AOSP 6.0.1_r60 + Nexus 5 Binaries + Nexus 5 Images Built），無法順利下載 AOSP 程式碼建置的朋友可以考慮使用虛擬機開始唷！
+[點此下載](https://1drv.ms/f/s!ApqiyucM1a6alBO6WK5I5EG8-RTm)
+
 ## TODO
 
 以下這些章節待完成，如果各位願意一起共筆的話不妨寫上吧！別忘了在 Contributors 上加上你的大名和聯絡方式喔！
