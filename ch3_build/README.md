@@ -306,7 +306,7 @@ Which would you like? [aosp_arm-eng]
 $ make -j32
 ```
 
-以 4 Cores 8 HyperThreads 的電腦來說，大概 4 ~ 5 個小時會完成。而 16 cores 32 HyperThreads 大概 1 個小時會完成。當中的 `-j32` 表示最高可以同時開 32 個平行的 Thread / Process 來做編譯的動作。一般來說，這個數字建議用 CPU 數量的 2 倍
+以 4 Cores 8 HyperThreads 的電腦來說，大概 4 ~ 5 個小時會完成。而 16 cores 32 HyperThreads 大概 1 個小時會完成。當中的 `-j32` 表示最高可以同時開 32 個平行的 Thread / Process 來做編譯的動作。一般來說，這個數字建議用 CPU 核心數量的 2 倍
 
 ### Clean Build
 
