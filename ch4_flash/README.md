@@ -38,6 +38,18 @@ $ fastboot devices
 
 如果出現 no permission, 請參考 udev rules setting [TODO]
 
+### 解除 bootloader lock (執行一次就好)
+
+一般手機都會把 bootloader 鎖住, 不讓使用者自行燒錄 image. 所以需要先 unlock
+
+每一間手機廠解鎖 bootloader 的方式都不相同, 這邊是以 Google 出的 Nexus 系列為例子
+
+```sh
+
+$ fastboot oem unlock
+
+```
+
 ### 燒錄 images, 通常只需要燒 system/boot/userdata 這三個 partition, 請參考 android partition [TODO]
 
 ```sh
