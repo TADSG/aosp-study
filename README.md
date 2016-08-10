@@ -32,13 +32,21 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 6. [AOSP 架構總覽](/ch6_aosp_overview)
 7. [設定 Android Studio](/ch7_android_studio_setup)
 
+### 基礎能力篇
+
+TODO
+
+1. Android 的核心 Library (sp, wp, RefBase)
+2. Android 的第一行程式碼 -- `init`
+3. Android 的 `Makefile` -- `Android.mk`
+
 ### Android 核心知識篇 (TODO)
 
 暫定主題，順序未定
 
 * Android 與 Linux Kernel 的關係
 * HAL
-* Android 的核心 Library (sp, wp, RefBase)
+
 * Android 執行的第一個程式：init 與 init.rc
 * Android 的 IPC 框架：ServiceManager 與 Binder Driver
 * Android 開機流程
