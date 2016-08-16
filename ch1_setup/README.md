@@ -64,7 +64,7 @@ function umountAndroid() { hdiutil detach /Volumes/android; }
 
 ![手動退出](manual_unplug.png)
 
-### <a name="disk_option1"> 選項 2 - [使用外接 128G（以上）的 SD 記憶卡] </a>
+### <a name="disk_option2"> 選項 2 - [使用外接 128G（以上）的 SD 記憶卡] </a>
 
 由於 AOSP 所需要的是區分大小寫的磁區，所以我們要將 SD 記憶卡給格式化成我們需要的格式。
 
