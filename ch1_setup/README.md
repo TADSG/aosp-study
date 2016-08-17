@@ -64,7 +64,7 @@ function umountAndroid() { hdiutil detach /Volumes/android; }
 
 ![手動退出](manual_unplug.png)
 
-### <a name="disk_option1"> 選項 2 - [使用外接 128G（以上）的 SD 記憶卡] </a>
+### <a name="disk_option2"> 選項 2 - [使用外接 128G（以上）的 SD 記憶卡] </a>
 
 由於 AOSP 所需要的是區分大小寫的磁區，所以我們要將 SD 記憶卡給格式化成我們需要的格式。
 
@@ -128,6 +128,8 @@ $ ulimit -S -n 1024
 
 [下一章：下載 AOSP 程式碼](/ch2_download)
 
+
+
 # <a name="ubuntu1404">Ubuntu 14.04 LTS</a>
 ## 安裝需要的 Libraries 和 Packages
 
@@ -149,3 +151,17 @@ export USE_CCACHE=1
 ## Reference
 
 * [AOSP官方設定(英)](https://source.android.com/source/initializing.html)
+
+
+
+
+
+# Mac 補充筆記
+* Mac OS 是 不區分大小寫的，所以會在 git 上產生異常，所以才需要特別建立一個使用分大小寫的檔案系統。
+* 使用`外接 SD 記憶卡` 建議將記憶卡名稱命名為 `android` 之後再貼code的時候比較不會因為粗心錯了。
+* `使用外接 SD 記憶卡` 不需要做 `建立 mountAndroid 及 umountAndroid 指令`
+* CLI (command-line interface) 命令行界面
+* `~/`為使用者之家目錄 `.bash_profile` 為該目錄下之一個隱藏檔，故上方`~/.bash_profile` 是要我們在終端機上輸入  "vim ~/.bash_profile " 完成畫面應該會如下圖(目前不確定這樣做對不對)
+![.bash_profile](bash_profile.png)
+*`安裝需要的 Libraries 和 Packages` 及 `調高 FD 上限` 不一定要實作。
+

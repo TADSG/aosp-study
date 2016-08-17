@@ -42,11 +42,21 @@ $ mkdir aosp
 終於到了下載 AOSP 原始碼的時候了，請在 `aosp` 資料夾下執行
 
 ```shell
+$ cd /aosp/
 $ repo init -u https://android.googlesource.com/platform/manifest
 ```
 
 這樣做會直接取得目前最新的 AOSP 程式碼的 `repo` 描述檔。
 ***請注意要在 `/Volumes/android/aosp`（用外接SD記憶卡則為 `[SD 記憶卡路徑]/aosp`）資料夾內做 `repo init` 的動作，而不是在 `/Volumes/android/` 喔***（這邊是為了避免未來如果想要再下載一份 AOSP 時產生問題）
+
+### 如果上一個步驟做錯了
+如果已經在 `/Volumes/android/` 初始化 `init` ，移除 `.repo` 即可。
+
+```shell
+$ rm -r /Volumes/android/.repo
+
+```
+
 
 `repo` 的描述檔會放在 `/Volumn/android/aosp/.repo/manifest.xml`（外接 SD 卡則是 `[SD下根目錄]/aosp/.repo/manifest.xml`），有興趣的可以自己打開來看。
 
