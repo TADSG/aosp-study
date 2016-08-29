@@ -31,27 +31,23 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 5. [使用 adb 工具開發 AOSP](/ch5_adb)
 6. [AOSP 架構總覽](/ch6_aosp_overview)
 7. [設定 Android Studio](/ch7_android_studio_setup)
+### Android 基礎知識篇
 
-### 基礎能力篇
+8. [Android 的核心 Library](/ch8_android_core_libraries)
+9. [Android 的 `Makefile` -- `Android.mk`](/ch9_android_makefile)
+10. [Android 開機流程概觀](/ch10_android_bootup_progress)
+11. Android 的第一行程式碼 -- `init` 及 `init.rc`
+12. Android framework 啟動
 
-TODO
-
-1. Android 的核心 Library (sp, wp, RefBase)
-2. Android 的第一行程式碼 -- `init`
-3. Android 的 `Makefile` -- `Android.mk`
-
-### Android 核心知識篇 (TODO)
+### Android 核心知識篇
 
 暫定主題，順序未定
 
 * Android 與 Linux Kernel 的關係
 * HAL
-
-* Android 執行的第一個程式：init 與 init.rc
 * Android 的 IPC 框架：ServiceManager 與 Binder Driver
-* Android 開機流程
-* Zygote
 * Framework IPC: IBinder
+* Zygote
 * System Server
 
 * [附錄：終端機工具及指令](/appendix/cli-tools)
