@@ -31,6 +31,7 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 5. [使用 adb 工具開發 AOSP](/ch5_adb)
 6. [AOSP 架構總覽](/ch6_aosp_overview)
 7. [設定 Android Studio](/ch7_android_studio_setup)
+
 ### Android 基礎知識篇
 
 8. [Android 的核心 Library](/ch8_android_core_libraries)
