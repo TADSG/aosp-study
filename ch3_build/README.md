@@ -97,7 +97,9 @@ Which would you like? [aosp_arm-eng]
 
 ## 修改部份程式碼以通過編譯
 
-### 問題：Max Property Name
+### 問題：Max Property Name (已於2016/09/02確定本問題消失)
+
+**如果你是在2016/09/02之後才下載AOSP(或者重新下載)的話，這個問題已經被官方修正了。如果是在2016/08/05至2016/09/02之間下載AOSP的話，就要自己確認一下嘍**
 
 作者在 2016/08/05 時進行編譯有碰到一些問題，所以這邊先把這個問題處理掉。在底下的 Trouble Shooting 也可以找到一樣的問題。
 
@@ -116,6 +118,8 @@ PROP_VALUE_MAX = 128
 // #define PROP_VALUE_MAX  92
 #define PROP_VALUE_MAX  128
 ```
+
+## 手動修改程式碼完成！
 
 到此為止你應該就能順利編譯 AOSP 了！
 
