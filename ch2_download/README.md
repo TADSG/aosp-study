@@ -12,12 +12,14 @@
 # <a name="macosx">Mac OS X</a>
 ## 安裝 repo 工具
 
-官方文件是將 `repo` 安裝在 `~/bin/` 下，但放在這裡就必需要改 `$PATH`，所以我推薦是放在 `/usr/local/bin/` 下。
+官方文件是將 `repo` 安裝在 `~/bin/` 下，但放在這裡就必需要改 `$PATH`，所以這份教學推薦是放在 `/usr/local/bin/` 下。
 
 ```shell
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
 $ chmod a+x /usr/local/bin/repo
 ```
+
+有關`repo`工具的一些使用方法，可以參考[附錄：repo工具](/appendix/repo/)
 
 ## 掛載 Android 磁區
 

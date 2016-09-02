@@ -50,6 +50,7 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 * Zygote
 * System Server
 
+* [附錄：repo工具](/appendix/repo/)
 * [附錄：終端機工具及指令](/appendix/cli-tools)
 
 ## Contributors (協作者們)

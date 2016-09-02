@@ -347,7 +347,12 @@ $ emulator
 
 [下一章：燒入客製的AOSP image](/ch4_flash)
 
-## Trouble Shooting
+## 疑難排解
+
+### 我無論如何都無法編譯！快救救我！
+
+由於每個人下載時間不同，拿到的AOSP原始碼可能會有點差異（因為我們都是拿最新的程式碼，Android的更新速度也很快，基本上不同天下載拿到的程式碼就不一樣了）。萬一不幸發生你拿到的程式碼完全編譯不過的事情，那麼可以使用別人確定能編譯的原始碼版本。請參考[附錄：終端機工具及指令](/appendix/cli-tools)並在[本章節資料夾](/ch3_build/known_good_manifests/)內找一個喜歡的manifest使用。
+
 ### fingerprint
 
 ```
