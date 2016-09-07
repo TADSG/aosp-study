@@ -374,7 +374,7 @@ Unsupported curl, please use a curl not based on SecureTransport
 ### jack-server 無法啟動
 ```Shell
 #執行途中如果顯示jack-server start failed，請依以下指令移除後重新安裝。
-$ cd ~/aosp/src
+$ cd [path/to/aosp/root]
 $ jack-admin kill-server
 $ jack-admin uninstall-server
 $ cd prebuilts/sdk/tools
