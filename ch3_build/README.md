@@ -370,3 +370,15 @@ error: ro.build.fingerprint cannot exceed 91 bytes: Android/mini_emulator_x86_64
 Unsupported curl, please use a curl not based on SecureTransport
 ```
 [Stack Overflow](http://stackoverflow.com/questions/33318756/while-i-make-the-source-of-android-6-0-it-failed)
+
+### jack-server 無法啟動
+```Shell
+#執行途中如果顯示jack-server start failed，請依以下指令移除後重新安裝。
+$ cd [path/to/aosp/root]
+$ jack-admin kill-server
+$ jack-admin uninstall-server
+$ cd prebuilts/sdk/tools
+$ jack-admin install-server jack-launcher.jar  jack-server-4.8.ALPHA.jar
+#請先下ls確定jack-server-[version].jar檔案名稱
+```
+[AOSP Issue](https://code.google.com/p/android/issues/detail?id=194027#c7 )
