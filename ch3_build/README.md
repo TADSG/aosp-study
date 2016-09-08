@@ -382,3 +382,13 @@ $ jack-admin install-server jack-launcher.jar  jack-server-4.8.ALPHA.jar
 #請先下ls確定jack-server-[version].jar檔案名稱
 ```
 [AOSP Issue](https://code.google.com/p/android/issues/detail?id=194027#c7 )
+
+### java 版本不符合
+
+如果同時安裝OpenJDK或OracleJDK多個版本，請執行以下指令並選擇正確版本的JDK路徑
+```Shell
+$ sudo update-alternatives --config javac
+$ sudo update-alternatives --config java
+$ sudo update-alternatives --config keytool
+```
+如果仍然出現版本不符，請移除其他JDK版本的套件
