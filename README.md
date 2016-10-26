@@ -42,17 +42,16 @@ AOSP 為 **Android Open Source Project** 的縮寫，白話來說就是 Android 
 
 ### Android 核心知識篇
 
-暫定主題，順序未定
-
+13. [Android 的 IPC 框架：Binder](/ch13_android_ipc_binder)
 * Android 與 Linux Kernel 的關係
 * HAL
-* Android 的 IPC 框架：ServiceManager 與 Binder Driver
-* Framework IPC: IBinder
 * Zygote
 * System Server
 
-* [附錄：repo工具](/appendix/repo/)
-* [附錄：終端機工具及指令](/appendix/cli-tools)
+### 附錄
+
+* [repo工具](/appendix/repo/)
+* [終端機工具及指令](/appendix/cli-tools)
 
 ## Contributors (協作者們)
 
