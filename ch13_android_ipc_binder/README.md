@@ -31,10 +31,77 @@ Kernel中實現IPC是是用shared memory來使資料共用，這部份在實作�
 
 # Native (c++) 層的Binder
 
+這邊有幾個重要的東西：
 
+* 和Binder Driver溝通所需要的程式：servicemanager
+* `IBinder`類別：所有走Binder機制進行IPC的類別在過程中都會短暫的變成IBinder，在真的要使用時會再用IBinder.asInterface()來轉換回原本的介面。
+* `JavaBBinder`：由C++層提供給Java層用的Binder介面
+
+## servicemanager
+
+在`Context Manager`中提到，有個程式會變成`Context Manager`，這個程式位在`$TOP/frameworks/native/cmds/servicemanager/`中。可以在同資料夾的`service_manager.c`下找到`main()`，藉由呼叫`ioctl(bs->fd, BINDER_SET_CONTEXT_MGR, 0);`來設定自己為`Context Manager`後，會進入一個無窮迴圈等待別的Process交辦事項。
+
+### service 工具
+
+同樣在`$TOP/frameworks/native/cmds/`資料夾下還有一個叫`service`的資料夾，這個`service`資料夾內放了一個很單純的C程式，可以在`adb shell`內把被註冊進`servicemanager`內的所有Binder給叫出來。
+
+## IBinder相關的標頭檔
+
+在`$TOP/frameworks/native/include/binder/`下可以找到很多和Binder相關的C++ header file，包含：
+
+* `IInterface`：要能透過Binder IPC呼叫的C++ class都必需繼承此類別。
+* `IBinder.h`、`Binder.h`、`BpBinder.h`：IPC過程中變成IBinder所需要的實作
+* `Parcel.h`：真的用來寫入shared memory用的程式。用來將支援的型別以正確的方式寫進shared memory。
+* `IServiceManager.h`：用來拿系統當前的`ServiceManager`的程式碼。
+
+繼承圖：
+![Binder 與 IInterface](Binder_and_IInterface.png)
+圖中紅色為必需自己宣告及實作的部份
+
+
+### IBinder、BBinder、BpBinder
+
+利用transaction來處理資料。每次transaction時會代入適當的`cmd`參數，所以就知道這次是打算呼叫哪個函式。如果實作上是`BBinder`就會直接呼叫，如果是`BpBinder`就會利用`Parcel`來將資料送到另一個Process再呼叫對應的函式。
+
+`BBinder`意思是這個Binder和當前Process是同一個Process，所以不需要多此一舉做IPC。而如果是BpBinder指的則是`Proxy`--這是一個連接其它Process用的工具，只要對它呼叫函式就會自動處理IPC。
+
+### Parcel
+
+<TODO>
+
+### IServiceManager
+
+IServiceManager界面提供用名稱取得目標服務及註冊新服務的功能。
+`IServiceManager`由於本身也是系統服務的一部份，所以也是繼承自`IInterface`並實作了`BnServiceManager`和`BpServiceManager`。當中以提供了`sp<IServiceManager> defaultServiceManager()`讓任何類別都能拿到`IServiceManager`的實作。
+
+`IServiceManager`提供的功能如下：
+
+* `sp<IBinder> getService(const String16& name)`
+* `sp<IBinder> checkService(const String16& name)`
+* `status_t addService(const String16& name, const sp<IBinder>& service, bool allowIsolated = false)`
+
+
+#### ProcessState::self()
+
+值得注意的是`defaultServiceManager()`的實作會用到`ProcessState::self()->getContextObject(0)`，這一步是用來取得`servicemanager`用的。`ProcessState`是Android中用來放Process本身全域變數的地方。和它容易搞混的還有`IPCThreadState`，不過`IPCThreadState`是用來放Thread變數的地方，比如說像main thread要進入loop的狀態就會用`IPCThreadState::self()->joinThreadPool()`來做。
+
+
+## 給Java層用的Binder：JavaBBinder
+
+程式碼位在`$TOP/framework/base/core/jni/android_util.Binder.cpp`，可以發現`JavaBBinder`繼承了`BBinder`，目的是使C++層能夠呼叫Java層的Binder。換句話說，***Java層的Binder其實是用來給C++呼叫的，而非讓Java層彼此呼叫。***
 
 
 # Java 層的Binder
+
+* IBinder.java
+* Binder.java
+* AIDL
+
+
+
+# 實作自己的C++ Interface
+
+利用`DELCARE_META_INTERFACE`及`IMPLEMENT_META_INTERFACE`
 
 # 參考資料
 
