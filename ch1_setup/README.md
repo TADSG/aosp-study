@@ -136,7 +136,6 @@ $ ulimit -S -n 1024
 參考來源：[官網](https://source.android.com/source/requirements.html)。
 
 ```shell
-$ sudo apt-add-repository ppa:openjdk-r/ppa
 $ sudo apt-get update
 $ sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip openjdk-7-jdk
 ```
