@@ -287,6 +287,13 @@ Which would you like? [aosp_arm-eng]
 
 使用模擬器開發建議啟用 HAXM 加速，Linux 上啟用 HAXM 請參考 [How to Start Intel Hardware-assisted Virtualization (hypervisor) on Linux to Speed-up Intel Android x86 Emulator](https://software.intel.com/en-us/blogs/2012/03/12/how-to-start-intel-hardware-assisted-virtualization-hypervisor-on-linux-to-speed-up-intel-android-x86-emulator)
 
+Note: Intel HAXM加速說明裡面,需要安裝ia32-libs但是已經列入old-release，Ubuntu14.04預設找不到，代替它的package我不知道是哪一個，在這邊提供抓法
+sudo -i
+cd /etc/apt/sources.list.d
+echo "deb http://old-releases.ubuntu.com/ubuntu/ raring main restricted universe multiverse" >ia32-libs-raring.list
+apt-get update
+apt-get install ia32-libs
+
 用實機（Nexus 系列）開發的人，請選用你裝置專用的代碼  
 請參考：  
 [1] [Codenames, Tags, and Build Numbers](https://source.android.com/source/build-numbers.html#source-code-tags-and-builds)  
