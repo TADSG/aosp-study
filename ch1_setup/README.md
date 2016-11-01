@@ -115,7 +115,7 @@ Mac 預設上有限制最大 FD 開啟數量(簡單來說，Mac 有限制同時�
 
 ```shell
 # set the number of open files to be 1024
-$ ulimit -S -n 1024
+ulimit -S -n 1024
 ```
 
 完成這步後請記得重新打開你的終端機，這樣改動才會生效。
