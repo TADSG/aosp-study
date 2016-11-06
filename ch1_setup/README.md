@@ -123,7 +123,14 @@ $ brew install curl --with-openssl   # 先裝起來，下一章會再處理選�
 ```
 ### 使用 MacPorts
 如果就是想使用 MacPorts ，請根據自己的作業系統到[macports.org](https://www.macports.org/install.php)下載。
-但是官網沒提到的 Libraries 還是得下載。
+
+```
+$ export PATH=/opt/local/bin:$PATH   #設定環境變數 
+```  
+
+```
+$ POSIXLY_CORRECT=1 sudo port install gmake libsdl git gnupg ninja xz  #安裝 make, libsdl, git, ninja, xz and GPG
+```
 
 ## 調高 FD 上限
 
