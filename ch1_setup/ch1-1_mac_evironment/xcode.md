@@ -85,18 +85,16 @@ function umountAndroid() { hdiutil detach /Volumes/android; }
 
 請參考[官網](https://source.android.com/source/requirements.html)，一般來說 Android App 開發者該裝的都裝過了。
 
-以 Android 6.0 為例 需要環境如下 
- 
+以 Android 6.0 為例 需要環境如下  
 * AOSP：  [AOSP master](/ch2_download)  
-* Mac OS v10.10 (Yosemite) 或更新版本  
+* Mac OS v10.10 (Yosemite) 或更新版本
 * Xcode 4.5.2 [app store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)  
-* Command Line Tools  ```$ xcode-select --install ```
+* Command Line Tools  
 * jdk 8u45 或更新版本 [jdk](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
 * Python 2.6 -- 2.7 [python.org](https://www.python.org/downloads/)  
 * GNU Make 3.81 -- 3.82 [gnu.org](http://ftp.gnu.org/gnu/make/)  
 * Git 1.7 或更新版本 [git-scm.com](https://git-scm.com/download)  
 * Device binaries [設備的二進制文件](https://developers.google.com/android/nexus/blobs-preview)  按 download 下載最新。  
-* MacPorts  [macports.org](https://www.macports.org/install.php)
 
 ### 使用 homebrew
 
@@ -121,9 +119,6 @@ $ brew install xz   # ninja-build 的過程會用到
 ```
 $ brew install curl --with-openssl   # 先裝起來，下一章會再處理選用自己裝的 curl 這件事。
 ```
-### 使用 MacPorts
-如果就是想使用 MacPorts ，請根據自己的作業系統到[macports.org](https://www.macports.org/install.php)下載。
-但是官網沒提到的 Libraries 還是得下載。
 
 ## 調高 FD 上限
 
