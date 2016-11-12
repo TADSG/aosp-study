@@ -87,7 +87,9 @@ Kernel必需要先準備好，才行執行Android。負責和硬體溝通的driv
 
 ### `$TOP/device`
 
-廠商自製的`AOSP`裝置的設定檔會放在這
+廠商自製的`AOSP`裝置的設定檔會放在這，可以在裡面看到 htc, huawei, moto...等廠商。理論上，公司新增的資料夾會在這裡，雖然 Android 並沒有強迫這麼做（Samsung 不在裡面）。
+
+![](ios_image/device_dir.png)
 
 
 ## 其它資料夾
@@ -111,7 +113,51 @@ Kernel必需要先準備好，才行執行Android。負責和硬體溝通的driv
 
 `AOSP`文件相關
 
+### `$TOP/bootable`
+`啟動`或是`引導`相關的Ｃ++語言程式碼，可以在 recovery 資料夾中看到， install.cpp 安裝, ui.cpp 顯示ＵＩ, adb_install.cpp adb安裝...。
 
+### `$TOP/dalvik`
+[dalvik虛擬機](https://zh.wikipedia.org/wiki/Dalvik%E8%99%9A%E6%8B%9F%E6%9C%BA)
+
+Java字節碼（bytecode）被轉換成Dalvik虛擬機所使用的替代指令集。 一個未壓縮dex檔案通常稍小於一個已經壓縮的.jar檔。
+
+### `$TOP/out`
+編譯完後的程式碼會存在這個目錄裡面，不同平台編譯出來的產物會不太一樣。
+### `$TOP/packages`
+可以在裡面看到 
+
+* App (應用程式) ：  
+鬧鐘，電視，計算機，照相機...等各種ＡＰＰ。  
+* inputmethods（輸入法）：  
+LatinIME 拉丁文輸入法，OpenWnn 輸入法。  
+* providers （提供器）：   
+CalendarProvider聯絡人提供器，CalendarProvider 日曆提供器，DownloadProvider 下載提供器...  
+
+
+### `$TOP/system`
+使用Ｃ語言的比較底層的應用，例如：打開 Core 可以看到 fastboot 快速啟動相關, init 的原始碼, libcrypto_utils 加密相關，logcat log工具 ...
+
+
+### `$TOP/tools`
+工具
+### `$TOP/sdk`
+SDK 和模擬器
+
+### `$TOP/pdk`
+
+### `$TOP/platform_testing`
+
+### `$TOP/prebuilts`
+
+### `$TOP/toolchain`
+
+### `$TOP/developers`
+
+### `$TOP/kernel`
+
+### `$TOP/libcore`
+
+### `$TOP/libnativehelper`
 TODO: 其它資料夾
 
 
