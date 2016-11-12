@@ -131,6 +131,11 @@ $ export PATH=/opt/local/bin:$PATH   #設定環境變數
 ```
 $ POSIXLY_CORRECT=1 sudo port install gmake libsdl git gnupg ninja xz  #安裝 make, libsdl, git, ninja, xz and GPG
 ```
+## 使用ccache可以加快build code的速度
+```$ export USE_CCACHE=1 ＃添加環境變數```  
+```$ mkdir chch```  
+```$ CCACHE_DIR=/chch/.ccache #建立緩存的目錄```  
+```$ prebuilts/misc/darwin-x86/ccache/ccache -M 50G #設定緩存的空間```  
 
 ## 調高 FD 上限
 
