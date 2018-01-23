@@ -5,4 +5,6 @@
 * [終端機工具/指令](/cli-tools/)
 ** [caffeinate](/cli-tools/caffeinate.md)
 ** [tee](/cli-tools/tee.md)
+* [repo工具](/repo/)
+* [adb進階用法](/adb/)
 
